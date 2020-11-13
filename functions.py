@@ -12,18 +12,18 @@ def from_parquet():
     returns joined table
     """
 
-    table1 = pd.read_parquet('sales.parquet',
+    table1 = pd.read_parquet('data_parquet/sales.parquet',
                              columns=['date', 'shop_id', 'owner', 'number_of_counters',
                                       'goods_type', 'total_items_sold', ],
                              engine='pyarrow')
 
-    table2 = pd.read_parquet('shops.parquet',
+    table2 = pd.read_parquet('data_parquet/shops.parquet',
                              columns=['shop_id', 'neighborhood', 'city',
                                       'year_opened', 'is_on_the_road', 'is_with_the_well',
                                       'is_with_additional_services', 'shop_type', ],
                              engine='pyarrow')
 
-    table3 = pd.read_parquet('cities.parquet', engine='pyarrow')
+    table3 = pd.read_parquet('data_parquet/cities.parquet', engine='pyarrow')
 
     table1 = pd.DataFrame(table1)
     table2 = pd.DataFrame(table2)
